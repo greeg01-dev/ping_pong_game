@@ -2527,6 +2527,7 @@ name = "ping_pong_game"
 version = "0.1.0"
 dependencies = [
  "bevy",
+ "rand",
 ]
 
 [[package]]

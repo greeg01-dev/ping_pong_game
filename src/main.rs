@@ -1,6 +1,10 @@
 #![windows_subsystem = "windows"]
 
-use bevy::prelude::{App, ClearColor, Color, DefaultPlugins, WindowDescriptor};
+use bevy::prelude::{App, ClearColor, Color, DefaultPlugins, IntoSystem, WindowDescriptor};
+
+mod setup;
+mod entities;
+mod system;
 
 fn main() {
     App::build()
@@ -13,5 +17,10 @@ fn main() {
         })
         .insert_resource(ClearColor(Color::WHITE))
         .add_plugins(DefaultPlugins)
+        .add_startup_system(setup::setup.system())
+        .add_system(system::move_ball.system())
+        .add_system(system::bound_ball.system())
+        .add_system(system::move_paddle_1p.system())
+        .add_system(system::move_paddle_2p.system())
         .run()
 }
