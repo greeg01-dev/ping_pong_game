@@ -22,5 +22,8 @@ fn main() {
         .add_system(system::bound_ball.system())
         .add_system(system::move_paddle_1p.system())
         .add_system(system::move_paddle_2p.system())
+        .add_system(system::score_board.system())
+        .add_system(system::add_score.system())
         .run()
+
 }

@@ -1,5 +1,6 @@
 use bevy::prelude::{Query, Sprite, Transform};
 use bevy::sprite::collide_aabb::collide;
+use rand::Rng;
 use crate::entities::{Ball, Paddle1p, Paddle2p};
 
 // function to bound the ball
@@ -33,6 +34,16 @@ pub fn bound_ball(
             ).is_some() {
             // rotate the ball
             ball.degree = 360.0 - ball.degree;
+            // rotate the ball from -10.0 to 10.0
+            {
+                let mut rng = rand::thread_rng();
+                ball.degree += rng.gen_range(-10.0..=10.0);
+            }
+            // make ball's degree between 0 and 360
+            if ball.degree < 0.0 {
+                ball.degree = 360.0 + ball.degree;
+            }
+            // add ball's speed
             ball.speed += 0.2
         }
     }
