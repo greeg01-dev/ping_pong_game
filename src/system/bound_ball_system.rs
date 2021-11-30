@@ -41,8 +41,12 @@ pub fn bound_ball(
             }
             // make ball's degree between 0 and 360
             if ball.degree < 0.0 {
-                ball.degree = 360.0 + ball.degree;
+                ball.degree += 360.0;
             }
+            else if ball.degree > 360.0 {
+                ball.degree -= 360.0
+            }
+
             // add ball's speed
             ball.speed += 0.2
         }
