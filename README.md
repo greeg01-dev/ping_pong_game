@@ -1,5 +1,5 @@
 # Ping Pong Game
-A Ping Pong Game made with Rust(https://www.rust-lang.org)
+A Ping Pong Game made with [Rust](https://www.rust-lang.org)
 ![ping_pong_game](./ScreenShot.png)
 
 ## Modules
